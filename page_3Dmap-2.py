@@ -5,10 +5,10 @@ import pandas as pd
 
 
 st.title("Plotly 3D 地圖 (向量 - 地球儀)")
-st.write("假設以人口數大於一億作為大型國家，或是國立強大的標準")
+st.write("假設以GNI低於1000美元的國家來作為低收入國家指標")
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
-df = px.data.gapminder().query("pop >= 100000000")
+df = px.data.gapminder().query("GNI <= 1000")
 # px.data 提供了幾個內建的範例資料集，方便使用者練習或展示。
 # gapminder() 是其中一個內建函式，它會載入著名的 Gapminder 資料集。
 # 這個資料集包含了世界各國多年的平均壽命 (lifeExp)、人均 GDP (gdpPercap) 和人口 (pop) 等數據。
@@ -36,7 +36,7 @@ st.plotly_chart(fig, use_container_width=True)
 # use_container_width=True:當設定為 True 時，Streamlit 會忽略 Plotly 圖表物件本身可能設定的寬度，
 # 並強制讓圖表的寬度自動延展，以填滿其所在的 Streamlit 容器 (例如，主頁面的寬度、某個欄位 (column) 的寬度，
 # 或是一個展開器 (expander) 的寬度)。
-st.write("問題：沒有考慮國家發展情況，人口數也不代表國家軍事實力")
+
 
 st.title("Plotly 3D 地圖 (網格 - DEM 表面)")
 

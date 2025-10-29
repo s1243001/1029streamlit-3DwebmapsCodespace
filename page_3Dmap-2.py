@@ -9,7 +9,7 @@ st.write("假設以人均GDP低於1000美元的國家來作為低收入國家指
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
 # 載入資料
-df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
+df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv").query("Year == 2024")
 
 # *** 修正錯誤：處理 'LifeEvaluation' 欄位中的 NaN 值 ***
 # 錯誤日誌顯示 'size' 屬性不能包含 NaN。

@@ -11,6 +11,7 @@ pages = [
 # 2. 使用 st.navigation() 建立導覽 (例如在側邊欄)
 with st.sidebar:
     st.title("關於我：自我介紹")
+    st.write("一個受困於地理思想的學生")
     # st.navigation() 會回傳被選擇的頁面
     selected_page = st.navigation(pages)
 

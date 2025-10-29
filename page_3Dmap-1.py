@@ -4,14 +4,6 @@ import numpy as np
 import pydeck as pdk
 
 st.title("Pydeck 3D 地圖 (向量 - 密度圖)")
-st.write("我沒有申請金鑰及帳號")
-
-import streamlit as st
-import pandas as pd
-import numpy as np
-import pydeck as pdk
-
-st.title("Pydeck 3D 地圖 (向量 - 密度圖)")
 
 # 0. 檢查 Mapbox 金鑰是否存在於 Secrets 中 (名稱應為 MAPBOX_API_KEY)
 

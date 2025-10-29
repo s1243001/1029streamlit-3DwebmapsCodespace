@@ -5,6 +5,7 @@ import pandas as pd
 
 
 st.title("Plotly 3D 地圖 (向量 - 地球儀)")
+st.write("假設以人口數大於一億作為大型國家，或是國立強大的標準")
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
 df = px.data.gapminder().query("pop >= 100000000")

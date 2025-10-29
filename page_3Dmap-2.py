@@ -19,7 +19,6 @@ df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
 fig = px.scatter_geo(
     df,
     locations="Country_name",  # 國家代碼
-    color="continent",      # 依據大陸洲別上色
     hover_name="Country_name",   # 滑鼠懸停時顯示國家名稱
     size="Life evaluation",       # 點的大小代表生活指數
     

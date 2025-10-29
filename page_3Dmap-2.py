@@ -18,9 +18,9 @@ df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
 # --- 2. 建立 3D 地理散點圖 (scatter_geo) ---
 fig = px.scatter_geo(
     df,
-    locations="Country_name",  # 國家代碼
-    hover_name="Country_name",   # 滑鼠懸停時顯示國家名稱
-    size="Life evaluation",       # 點的大小代表生活指數
+    locations="CountryName",  # 國家代碼
+    hover_name="CountryName",   # 滑鼠懸停時顯示國家名稱
+    size="LifeEvaluation",       # 點的大小代表生活指數
     
 
     # *** 關鍵：使用 "orthographic" 投影法來建立 3D 地球儀 ***

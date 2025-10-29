@@ -8,7 +8,7 @@ st.title("Plotly 3D 地圖 (向量 - 地球儀)")
 st.write("假設以人均GDP低於1000美元的國家來作為低收入國家指標")
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
-df = px.data.gapminder().query("gdpPercap <= 1000")
+df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
 # px.data 提供了幾個內建的範例資料集，方便使用者練習或展示。
 # gapminder() 是其中一個內建函式，它會載入著名的 Gapminder 資料集。
 # 這個資料集包含了世界各國多年的平均壽命 (lifeExp)、人均 GDP (gdpPercap) 和人口 (pop) 等數據。
@@ -18,11 +18,10 @@ df = px.data.gapminder().query("gdpPercap <= 1000")
 # --- 2. 建立 3D 地理散點圖 (scatter_geo) ---
 fig = px.scatter_geo(
     df,
-    locations="iso_alpha",  # 國家代碼
+    locations="Country_name",  # 國家代碼
     color="continent",      # 依據大陸洲別上色
-    hover_name="country",   # 滑鼠懸停時顯示國家名稱
-    hover_data = "pop",     # 滑鼠懸停時顯示人口數
-    size="gdpPercap",       # 點的大小代表人均GDP
+    hover_name="Country_name",   # 滑鼠懸停時顯示國家名稱
+    size="Life evaluation",       # 點的大小代表生活指數
     
 
     # *** 關鍵：使用 "orthographic" 投影法來建立 3D 地球儀 ***

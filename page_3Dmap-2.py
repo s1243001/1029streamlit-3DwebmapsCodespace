@@ -38,7 +38,7 @@ fig = px.scatter_geo(
     },
     
     # 調整點的最小和最大大小，確保它們在地球儀上可見
-    size_max=30,
+    size_max=20,
 
     # *** 關鍵：使用 "orthographic" 投影法來建立 3D 地球儀 ***
     projection="orthographic"

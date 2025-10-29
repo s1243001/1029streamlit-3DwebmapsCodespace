@@ -1,4 +1,4 @@
-﻿Year,Rank,Country name,Life evaluation (3-year average),Lower whisker,Upper whisker,Explained by: Log GDP per capita,Explained by: Social support,Explained by: Healthy life expectancy,Explained by: Freedom to make life choices,Explained by: Generosity,Explained by: Perceptions of corruption,Dystopia + residual,,,,,,,,,,,,,,,
+﻿Year,Rank,CountryName,LifeEvaluation,Lower whisker,Upper whisker,Explained by: Log GDP per capita,Explained by: Social support,Explained by: Healthy life expectancy,Explained by: Freedom to make life choices,Explained by: Generosity,Explained by: Perceptions of corruption,Dystopia + residual,,,,,,,,,,,,,,,
 2024,147,Afghanistan,1.364,1.301,1.427,0.649,0.000,0.155,0.000,0.075,0.135,0.348,,,,,,,,,,,,,,,
 2023,143,Afghanistan,1.721,1.667,1.775,0.628,0.000,0.242,0.000,0.091,0.088,0.672,,,,,,,,,,,,,,,
 2022,137,Afghanistan,1.859,1.795,1.923,0.645,0.000,0.087,0.000,0.093,0.059,0.976,,,,,,,,,,,,,,,
@@ -2623,3 +2623,4 @@
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
+

@@ -23,22 +23,44 @@ df = df.dropna(subset=['LifeEvaluation'])
 # "year == 2007" 是一個字串形式的查詢條件，意思是「選取 'year' 欄位的值等於 2007 的那些列」。
 
 # --- 2. 建立 3D 地理散點圖 (scatter_geo) ---
+# 修正無法顯示點和資訊的問題，並設定 locationmode 來幫助 Plotly 識別國家名稱
 fig = px.scatter_geo(
     df,
-    locations="CountryName",  # 國家代碼
-    hover_name="CountryName",    # 滑鼠懸停時顯示國家名稱
-    size="LifeEvaluation",        # 點的大小代表生活指數
+    locations="CountryName",          # 使用 CountryName 作為地理位置代碼
+    locationmode='country names',     # 告訴 Plotly 這些是國家名稱
+    hover_name="CountryName",         # 滑鼠懸停時顯示國家名稱
+    size="LifeEvaluation",            # 點的大小代表生活指數
+    color="LifeEvaluation",           # 點的顏色也代表生活指數
+    color_continuous_scale=px.colors.sequential.Viridis, # 設定顏色漸層
+    hover_data={
+        'LifeEvaluation': True,       # 顯示詳細的生活指數分數
+        'CountryName': False          # 避免重複顯示國家名稱
+    },
     
+    # 調整點的最小和最大大小，確保它們在地球儀上可見
+    size_max=30,
 
     # *** 關鍵：使用 "orthographic" 投影法來建立 3D 地球儀 ***
     projection="orthographic"
 )
-# "orthographic" 投影會將地球渲染成一個從太空中看到的球體，
-# 從而產生類似 3D 地球儀的視覺效果。
-# 其他常見投影如 "natural earth", "mercator" 等通常是 2D 平面地圖。
 
+# --- 3. 增加國界線來區分國家，並設定地球背景 ---
+fig.update_geos(
+    # 國界線設定
+    showcountries=True,           # 顯示國家邊界
+    countrycolor="Black",          # 國界線顏色
+    countrywidth=0.5,             # 國界線寬度
+    
+    # 地球背景設定
+    showland=True,                # 顯示陸地
+    landcolor="lightgray",        # 陸地顏色
+    showocean=True,               # 顯示海洋
+    oceancolor="lightblue",       # 海洋顏色
+    
+    # 移除邊框
+    showframe=False,
+)
 
-# --- 3. 在 Streamlit 中顯示 ---
 st.plotly_chart(fig, use_container_width=True)
 # use_container_width=True:當設定為 True 時，Streamlit 會忽略 Plotly 圖表物件本身可能設定的寬度，
 # 並強制讓圖表的寬度自動延展，以填滿其所在的 Streamlit 容器 (例如，主頁面的寬度、某個欄位 (column) 的寬度，

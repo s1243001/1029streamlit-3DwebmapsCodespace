@@ -5,7 +5,7 @@ import pandas as pd
 
 
 st.title("Plotly 3D 地圖 (向量 - 地球儀)")
-st.write("假設以人均GDP低於1000美元的國家來作為低收入國家指標")
+st.write("2024國家幸福指數")
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
 # 載入資料

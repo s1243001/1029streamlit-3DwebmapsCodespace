@@ -21,7 +21,7 @@ fig = px.scatter_geo(
     locations="iso_alpha",  # 國家代碼
     color="continent",      # 依據大陸洲別上色
     hover_name="country",   # 滑鼠懸停時顯示國家名稱
-    hover_data = ["pop"]# 滑鼠懸停時顯示人口數
+    hover_data = ["pop"], # 滑鼠懸停時顯示人口數
     size="gdpPercap",             # 點的大小代表人均GDP
     
 

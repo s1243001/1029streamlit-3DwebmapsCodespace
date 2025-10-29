@@ -8,7 +8,14 @@ st.title("Plotly 3D 地圖 (向量 - 地球儀)")
 st.write("假設以人均GDP低於1000美元的國家來作為低收入國家指標")
 
 # --- 1. 載入 Plotly 內建的範例資料 ---
+# 載入資料
 df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
+
+# *** 修正錯誤：處理 'LifeEvaluation' 欄位中的 NaN 值 ***
+# 錯誤日誌顯示 'size' 屬性不能包含 NaN。
+# 這裡我們刪除所有 'LifeEvaluation' 為 NaN 的行，以確保 Plotly 可以成功繪圖。
+df = df.dropna(subset=['LifeEvaluation'])
+
 # px.data 提供了幾個內建的範例資料集，方便使用者練習或展示。
 # gapminder() 是其中一個內建函式，它會載入著名的 Gapminder 資料集。
 # 這個資料集包含了世界各國多年的平均壽命 (lifeExp)、人均 GDP (gdpPercap) 和人口 (pop) 等數據。
@@ -19,8 +26,8 @@ df = pd.read_csv("WHR25_Data_Figure_2.1v3.csv")
 fig = px.scatter_geo(
     df,
     locations="CountryName",  # 國家代碼
-    hover_name="CountryName",   # 滑鼠懸停時顯示國家名稱
-    size="LifeEvaluation",       # 點的大小代表生活指數
+    hover_name="CountryName",    # 滑鼠懸停時顯示國家名稱
+    size="LifeEvaluation",        # 點的大小代表生活指數
     
 
     # *** 關鍵：使用 "orthographic" 投影法來建立 3D 地球儀 ***
@@ -36,6 +43,7 @@ st.plotly_chart(fig, use_container_width=True)
 # use_container_width=True:當設定為 True 時，Streamlit 會忽略 Plotly 圖表物件本身可能設定的寬度，
 # 並強制讓圖表的寬度自動延展，以填滿其所在的 Streamlit 容器 (例如，主頁面的寬度、某個欄位 (column) 的寬度，
 # 或是一個展開器 (expander) 的寬度)。
+
 
 
 st.title("Plotly 3D 地圖 (網格 - DEM 表面)")

@@ -13,5 +13,5 @@ st.write(f"正在播放影片： {video_url}")
 st.video(video_url)
 
 # 直接將 照片的 URL 傳給 st.image()
-image_url = "https://i.imgur.com/uf1T4ND.png"
+image_url = "https://media.tenor.co/cRs4lnEWw48AAAAd/everknight-evernight.gif"
 st.image(image_url)
